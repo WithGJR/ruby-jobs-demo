@@ -37,7 +37,7 @@ class JobsController < ApplicationController
   end
 
   def update
-    if @job.save
+    if @job.update(job_params)
       flash[:notice] = "Job Information has been updated successfully!"
       redirect_to @job
     else
