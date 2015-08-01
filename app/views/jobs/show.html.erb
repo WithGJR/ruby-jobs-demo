@@ -1,0 +1,25 @@
+<p><%= link_to content_tag(:span, "Back to job board", class: "glyphicon glyphicon-arrow-left"), root_path, class: "btn btn-success" %></p>
+<% if job_is_belongs_to_current_user?(@job) %>
+  <%= link_to "Edit", edit_job_path(@job), class: "btn btn-info" %>
+  <%= link_to "Delete", job_path(@job), class: "btn btn-danger", method: :delete %>
+<% end %>
+
+<div class="page-header">
+  <h1><%= @job.title  %> <small>Posted: <%= format_date(@job.created_at) %></small></h1>
+</div>
+
+<ul>
+  <li><strong>Job Type</strong>: <%= reformat_enum_key(@job.job_type) %></li>
+  <li><strong>Occupation</strong>: <%= reformat_enum_key(@job.occupation) %></li>
+  <li><strong>Company Name</strong>: <%= @job.company_name %></li>
+  <li><strong>Location</strong>: <%= @job.location %></li>
+  <% unless @job.url == "" %>
+    <li><strong>URL</strong>: <%= link_to @job.url, @job.url %></li>
+  <% end %>
+</ul>
+
+<h2>Description</h2>
+<%= parse_markdown(@job.description) %>
+
+<h2>APPLY INFORMATION</h2>
+<%= parse_markdown(@job.apply_information) %>
