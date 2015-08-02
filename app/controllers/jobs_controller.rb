@@ -5,13 +5,18 @@ class JobsController < ApplicationController
   def index
     if params[:user_id] 
       if user_signed_in? 
-        @jobs = current_user.jobs.order_from_latest
+        @jobs = current_user.jobs.recent
       else
         authenticate_user!
       end
     else
-      @jobs = Job.all.order_from_latest
+      @jobs = Job.all.recent
     end
+  end
+
+  def search
+    @jobs = Job.search(params[:keyword]).recent      
+    render :index
   end
 
   def new
