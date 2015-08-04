@@ -3,12 +3,12 @@ module JobsHelper
     date.strftime("%Y-%m-%d")   
   end
 
-  def reformat_enum_key(enum_key)
+  def rename_enum_key(enum_key)
     words = enum_key.split(" ")
     if words[0] == "Other"
       words[0]
     else
-      words.join(" ") 
+      words.join(" ")
     end
   end
 

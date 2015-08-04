@@ -33,7 +33,7 @@
         <% else %>
           <%= f.radio_button :job_type, key %>
         <% end %>
-        <%= reformat_enum_key(key) %>
+        <%= rename_enum_key(key) %>
       </label>
     <% end %>
   </div>
@@ -46,7 +46,7 @@
         <% else %>
           <%= f.radio_button :occupation, key %>
         <% end %>
-        <%= reformat_enum_key(key) %>
+        <%= rename_enum_key(key) %>
       </label>
     <% end %>
   </div>

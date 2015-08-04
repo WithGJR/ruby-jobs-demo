@@ -9,8 +9,8 @@
 </div>
 
 <ul>
-  <li><strong>Job Type</strong>: <%= reformat_enum_key(@job.job_type) %></li>
-  <li><strong>Occupation</strong>: <%= reformat_enum_key(@job.occupation) %></li>
+  <li><strong>Job Type</strong>: <%= rename_enum_key(@job.job_type) %></li>
+  <li><strong>Occupation</strong>: <%= rename_enum_key(@job.occupation) %></li>
   <li><strong>Company Name</strong>: <%= @job.company_name %></li>
   <li><strong>Location</strong>: <%= @job.location %></li>
   <% unless @job.url == "" %>
