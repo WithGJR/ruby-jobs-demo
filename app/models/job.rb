@@ -28,4 +28,8 @@ class Job < ActiveRecord::Base
   def to_param
     "#{id}-#{title.gsub(" ", "-")}" 
   end
+
+  def belongs_to?(user)
+    self.user == user 
+  end
 end

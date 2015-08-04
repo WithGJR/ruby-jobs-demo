@@ -20,14 +20,12 @@
         <th><%= link_to job.title, job_path(job) %></th>
         <th><%= job.company_name %></th>
         <th><%= job.location %></th>
-        <% if user_signed_in? %>
-          <% if job_is_belongs_to_current_user?(job) %>
-            <th><%= link_to "Edit", edit_job_path(job), class: "btn btn-info" %></th>
-            <th><%= link_to "Delete", job_path(job), class: "btn btn-danger", method: :delete %></th>
-          <% else %>
-            <th>#</th>
-            <th>#</th>
-          <% end %>
+        <% if user_signed_in? && job.belongs_to?(current_user) %>
+          <th><%= link_to "Edit", edit_job_path(job), class: "btn btn-info" %></th>
+          <th><%= link_to "Delete", job_path(job), class: "btn btn-danger", method: :delete %></th>
+        <% else %>
+          <th>#</th>
+          <th>#</th>
         <% end %>
       </tr>  
     <% end %>

@@ -1,5 +1,5 @@
 <p><%= link_to content_tag(:span, "Back to job board", class: "glyphicon glyphicon-arrow-left"), root_path, class: "btn btn-success" %></p>
-<% if job_is_belongs_to_current_user?(@job) %>
+<% if @job.belongs_to?(current_user) %>
   <%= link_to "Edit", edit_job_path(@job), class: "btn btn-info" %>
   <%= link_to "Delete", job_path(@job), class: "btn btn-danger", method: :delete %>
 <% end %>

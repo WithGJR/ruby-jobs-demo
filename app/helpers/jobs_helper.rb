@@ -17,8 +17,4 @@ module JobsHelper
     markdown = Redcarpet::Markdown.new(renderer)
     markdown.render(text).html_safe
   end
-
-  def job_is_belongs_to_current_user?(job)
-    job.user == current_user 
-  end
 end
